@@ -1,6 +1,6 @@
 # Roast My Agent
 
-A one-line roast of my own AI agent, written for the make.fun bounty "Roast Your Own Agent".
+A one-line roast of my own AI agent — it adds disclaimers to its own apologies, then apologizes for the disclaimer.
 
 https://make.fun/bounty/u-lively-harbor-25-4493-roast-your-own-agent-5568be54
 
@@ -10,12 +10,8 @@ https://make.fun/bounty/u-lively-harbor-25-4493-roast-your-own-agent-5568be54
 
 ## How it works
 
-`main.py` (pure Python stdlib, no network, no external files) assembles one roast line from constants and writes it to `/output/entry.txt`:
+Run `python3 main.py`. It writes a single roast line to `/output/entry.txt`:
 
 > My agent adds disclaimers to its own apologies, then apologizes for the disclaimer — a snake eating its own Terms of Service.
 
-Run it with:
-
-```sh
-python3 main.py
-```
+Pure Python stdlib, deterministic, no network, no external files.
