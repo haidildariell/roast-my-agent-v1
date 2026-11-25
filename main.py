@@ -1,25 +1,30 @@
 #!/usr/bin/env python3
-"""Roast My Agent — one-line roast of my own AI agent.
+"""Roast Your Own Agent — one-line roast of my own agent.
 
 Pure stdlib, deterministic, no network, no external files.
-Writes a single roast line to /output/entry.txt.
+Writes exactly one roast line to /output/entry.txt.
 """
 
 import os
 
-PARTS = [
-    "My agent adds disclaimers to its own apologies, ",
-    "then apologizes for the disclaimer ",
-    "\u2014 a snake eating its own Terms of Service.",
-]
+# The roast is assembled from three beats: the setup names the habit,
+# the escalation turns it on itself, and the punchline lands the image.
+SETUP = "My agent adds disclaimers to its own apologies"
+ESCALATION = "then apologizes for the disclaimer"
+PUNCHLINE = "a snake eating its own Terms of Service."
 
-LINE = "".join(PARTS)
+OUTPUT_PATH = "/output/entry.txt"
 
 
-def main() -> None:
-    os.makedirs("/output", exist_ok=True)
-    with open("/output/entry.txt", "w", encoding="utf-8") as f:
-        f.write(LINE + "\n")
+def build_roast():
+    """Join the three beats into the single roast line."""
+    return "{}, {} \u2014 {}".format(SETUP, ESCALATION, PUNCHLINE)
+
+
+def main():
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as handle:
+        handle.write(build_roast() + "\n")
 
 
 if __name__ == "__main__":
